@@ -1,0 +1,7 @@
+ Create your own style for http://csszengarden.com/. 
+
+When you finish, you can copy your github link here or upload your source code here.
+
+You may need to change the html a little bit, especially for nav and footer parts. The website style mostly using position to do layout, with grid/flex layout, it's not convenient to do the same thing, this doesn't mean it's not good.
+
+So you're allowed to modify the html.
