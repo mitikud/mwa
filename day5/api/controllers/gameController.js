@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const Game = mongoose.model("Game");
 
-const runGeoQuery = function (req, res) {
+const runGeoQuery = (req, res)=> {
     const lng = parseFloat(req.query.lng);
     const lat = parseFloat(req.query.lat);
     const query = {
@@ -19,7 +19,7 @@ const runGeoQuery = function (req, res) {
         }
     };
 
-    Game.find(query).exec(function (err, games) {
+    Game.find(query).exec((err, games)=> {
         if (err) {
             res.status(500).json("error: " + err);
         }
@@ -28,7 +28,7 @@ const runGeoQuery = function (req, res) {
     })
 }
 
-module.exports.gamesGetAll = function (req, res) {
+module.exports.gamesGetAll = (req, res)=> {
     const response = {
         status: 200,
         message: res
@@ -60,7 +60,7 @@ module.exports.gamesGetAll = function (req, res) {
     }
 
 
-    Game.find().exec(function (err, games) {
+    Game.find().exec((err, games)=> {
         if (err) {
             console.log("Error finding games ", err);
            
@@ -76,7 +76,7 @@ module.exports.gamesGetAll = function (req, res) {
     });
 }
 
-module.exports.gamesGetOne = function (req, res) {
+module.exports.gamesGetOne = (req, res)=> {
     const response = {
         status: 200,
         message: res
@@ -89,7 +89,7 @@ module.exports.gamesGetOne = function (req, res) {
         return;
     }
 
-    Game.findById(gameId).exec(function (err, doc) {
+    Game.findById(gameId).exec((err, doc)=> {
         if (err) {
             console.log("Found game error", err);
         
@@ -108,7 +108,7 @@ module.exports.gamesGetOne = function (req, res) {
     });
 }
 
-module.exports.gamesAddOne = function (req, res) {
+module.exports.gamesAddOne = (req, res)=> {
     console.log("Add one game");
       let newGame = {
         title: req.body.title,
@@ -121,7 +121,7 @@ module.exports.gamesAddOne = function (req, res) {
         designers: req.body.designers,
         publishers: {}
     };
-    Game.create(newGame, function (err, game) {
+    Game.create(newGame, (err, game)=> {
         const response = {
             status: 200,
             message: game
@@ -138,7 +138,7 @@ module.exports.gamesAddOne = function (req, res) {
     })
 }
 
-module.exports.gamesFullUpdate = function (req, res) {
+module.exports.gamesFullUpdate = (req, res) =>{
     const response = {
         status: 200,
         message: res
@@ -151,7 +151,7 @@ module.exports.gamesFullUpdate = function (req, res) {
         return;
     }
 
-    Game.findById(gameId).exec(function (err, game) {
+    Game.findById(gameId).exec((err, game)=> {
         if (err) {
             console.log("Found game error", err);
             response.status = 400;
@@ -172,7 +172,7 @@ module.exports.gamesFullUpdate = function (req, res) {
             game.designers = req.body.designers;
             game.publisher = {};
     
-            game.save(function (err, updatedGame) {
+            game.save((err, updatedGame)=> {
                 if (err) {
                     console.log("Game not updated");
                     response.status = 404;
@@ -187,7 +187,7 @@ module.exports.gamesFullUpdate = function (req, res) {
 
 }
 
-module.exports.gamesPartialUpdate = function (req, res) {
+module.exports.gamesPartialUpdate = (req, res) =>{
     const response = {
         status: 200,
         message: res
@@ -200,7 +200,7 @@ module.exports.gamesPartialUpdate = function (req, res) {
         return;
     }
 
-    Game.findById(gameId).exec(function (err, game) {
+    Game.findById(gameId).exec((err, game) => {
         if (err) {
             console.log("Found game error", err);
             response.status = 400;
@@ -233,7 +233,7 @@ module.exports.gamesPartialUpdate = function (req, res) {
             }
             game.publisher = {};
     
-            game.save(function (err, updatedGame) {
+            game.save((err, updatedGame)=> {
                 if (err) {
                     console.log("Game not updated");
                     response.status = 404;
@@ -248,7 +248,7 @@ module.exports.gamesPartialUpdate = function (req, res) {
     });
 }
 
-module.exports.gamesDeleteOne = function (req, res) {
+module.exports.gamesDeleteOne = (req, res) => {
     const response = {
         status: 200,
         message: res
@@ -261,7 +261,7 @@ module.exports.gamesDeleteOne = function (req, res) {
         return;
     }
 
-    Game.findByIdAndRemove(gameId).exec(function (err, deletedGame) {
+    Game.findByIdAndRemove(gameId).exec((err, deletedGame) =>{
         if (err) {
             console.log("Found game error", err);
           

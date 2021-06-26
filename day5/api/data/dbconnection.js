@@ -3,8 +3,8 @@ const dbName = "meanGames";
 const dbUrl = "mongodb://localhost:27017/"+dbName;
 
 let _connection = null;
-const open = function(){
-    MongoClient.connect(dbUrl, {useUnifiedTopology: true}, function(err, client){
+const open = ()=>{
+    MongoClient.connect(dbUrl, {useUnifiedTopology: true}, (err, client)=>{
         if (err){
             console.log("DB connection failed");
             return;
@@ -14,7 +14,7 @@ const open = function(){
     })
 }
 
-let get = function(){
+let get = ()=>{
     return _connection;
 }
 
