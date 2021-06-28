@@ -1,0 +1,5 @@
+	db.teams.insert({country: "USA",
+	win:3, 
+	lost:4, 
+	points:14,
+	players: [{name: "Tyler Adam", age:21,position:"Midfielder" },{name:"Ethan Horvath",age:20, position:"Goal Keeper"}]});
