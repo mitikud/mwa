@@ -117,7 +117,7 @@ module.exports.playerUpdate = (req, res)=>{
 	    } else {
 		team.players = [];
 		team.save()
-		response.message = updatedteam.players;
+		response.message = team.players;
 	    }
 	    res.status(response.status).json(response.message);
 	})
