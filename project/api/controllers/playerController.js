@@ -1,16 +1,20 @@
 const mongoose = require("mongoose");
 const Team =  mongoose.model("Team");
 const _addPlayer= function(req, res, team) {
-
+	console.log(req.body)
 	const newPlayer = {
 		name:req.body.name,
 	 	age:parseInt(req.body.age),
 		position:req.body.position
 	}
+	if(!team.players){
+		team.players = []
+	}
 	team.players.push(newPlayer);
 	team.save(function(err, updateTeam) {
 	const response= {status: 200, message: updateTeam };
 	if (err) {
+		console.log(err)
 		response.status= 500;
 		response.message= err;
 	} 
@@ -52,7 +56,8 @@ module.exports.playerAddOne= function(req, res) {
 
 module.exports.getOnePlayer = (req, res)=>{
 	console.log("Get one team request received");
-	const teamId = req.params.Id;
+	const teamId = req.params.teamId;
+
 	Team.findById(teamId).select("players").exec((err, player)=>{
 		console.log(player)
 	   if(err){
@@ -67,13 +72,14 @@ module.exports.getOnePlayer = (req, res)=>{
 
 module.exports.playerUpdate = (req, res)=>{
     
-	const response = {
+	
+	const teamId = req.params.teamId;
+	console.log(req.body)
+	Team.findById(teamId).exec((err, team)=>{
+		const response = {
 	    status: 200,
 	    message: team
 	}
-	const teamId = req.params.teamId;
-	
-	Team.findById(teamId).exec((err, team)=>{
 	    if (err) {
 	       response.status = 404;
 		response.message = err;
@@ -94,13 +100,14 @@ module.exports.playerUpdate = (req, res)=>{
 
     module.exports.playerDelete = (req, res)=>{
     
-	const response = {
-	    status: 200,
-	    message: team
-	}
+	
 	const teamId = req.params.teamId;
 	
 	Team.findById(teamId).exec((err, team)=>{
+		const response = {
+	    status: 200,
+	    message: team
+	}
 	    if (err) {
 	       response.status = 404;
 		response.message = err;
