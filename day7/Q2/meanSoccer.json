@@ -1,0 +1,4 @@
+{"_id":{"$oid":"60d8d1e5a280bc869c217e1c"},"country":"USA","win":3.0,"lost":4.0,"points":14.0,"players":[{"name":"Tyler Adam","age":21.0,"position":"Midfielder"},{"name":"Ethan Horvath","age":20.0,"position":"Goal Keeper"}]}
+{"_id":{"$oid":"60d8d2cba280bc869c217e1d"},"country":"Eritrea","win":5.0,"lost":2.0,"points":15.0,"players":[{"name":"Mitiku Kiflemariam","age":21.0,"position":"Striker"},{"name":"Yohannes Habtu","age":25.0,"position":"Goal Keeper"}]}
+{"_id":{"$oid":"60d8e7a4273ce34084e07de6"},"country":"Canada","win":5,"points":15,"players":[],"__v":2}
+{"_id":{"$oid":"60d904d45172860840e38158"},"country":"Ethiopia","win":6,"points":14,"players":[{"_id":{"$oid":"60d9060c5172860840e3815f"},"name":"solomon","age":24,"position":"goal Keeper"},{"_id":{"$oid":"60d906305172860840e38162"},"name":"yared","age":25,"position":"mid fielder"},{"_id":{"$oid":"60d9064c5172860840e38165"},"name":"fikiru","age":67,"position":"striker"}],"__v":3}
