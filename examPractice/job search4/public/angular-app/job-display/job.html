@@ -1,0 +1,42 @@
+<h1>Information About the Job: <p>{{vm.job.title}}</p></h1>
+<p>
+	Title: {{vm.job.title}}<br/>
+	Salary: {{vm.job.salary | currency}}<br/>
+	Description: {{vm.job.description}}<br/>
+	Experience: {{vm.job.experience}}<br/>
+	Skill: 
+		<ul><li ng-repeat="skill in vm.job.skills"> {{ skill }} 
+		<br>
+		</li></ul>
+		Add a skill: <input  ng-model="vm.skill"> 
+		<button ng-click="vm.addSkill()">Add</button>
+	Location:
+
+		Address: {{vm.job.location.address}}<br>
+		City: {{vm.job.location.city}}<br>
+		PostCode: {{vm.job.location.postCode}}<br>
+
+	PostDate: {{vm.job.postDate | date}}<br/>
+
+	<button class="btn btn-danger" ng-click="vm.deleteJob()">Delete</button>
+	<button class="btn btn-primary"  ng-click="vm.backHome()">Home</button>
+	
+	<form name="vm.jobForm" ng-submit="vm.updateJob()">
+		to Update Job please fill in the fields:<br>
+		Title: <input type="text" name="title"  ng-model="vm.job.title" style="color: black;"></br>
+		Salary: <input type="text" name="salary"  ng-model="vm.job.salary" style="color: black;"></br>
+		description: <input type="text" name="description"  ng-model="vm.job.description" style="color: black;"></br>
+		postDate: <input type="text" name="postDate"  ng-model="vm.job.postDate" style="color: black;"></br>
+		<!-- Skills: <input type="text" name="skills"  ng-model="vm.job.skills" style="color: black;"></br> -->
+		    Location: <ul>
+			    <li>Address: <input type="text" name="address"  ng-model="vm.job.location.address" style="color: black;"></br></li>
+			    <li>City: <input type="text" name="city"  ng-model="vm.job.location.city" style="color: black;"></br></li>
+			    <li>Post code: <input type="text" name="postCode"  ng-model="vm.job.location.postCode" style="color: black;"></br></li>
+		    </ul>
+
+	       <button class="btn btn-warning" type="submit">update</button>
+		
+	    </form>
+	
+	
+</p>

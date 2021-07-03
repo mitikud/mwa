@@ -1,0 +1,19 @@
+{
+  "name": "app16",
+  "version": "1.0.0",
+  "description": "This is app16",
+  "main": "app16.js",
+  "scripts": {
+    "start": "node app16.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MEAN",
+    "Games"
+  ],
+  "author": "Nobel Y",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

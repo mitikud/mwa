@@ -1,0 +1,15 @@
+<h1>Information About the Job: <p>{{vm.job.title}}</p></h1>
+<p>
+	Title: {{vm.job.title}}<br/>
+	Salary: {{vm.job.salary | currency}}<br/>
+	Description: {{vm.job.description}}<br/>
+	Experience: {{vm.job.experience}}<br/>
+	Skill: <li ng-repeat="skill in vm.job.skills"> {{ skill }} 
+		<br>
+	</li> 
+	PostDate: {{vm.job.postDate | date}}<br/>
+	<button class="btn btn-danger" ng-click="vm.deleteJob()">Delete</button>
+	<button class="btn btn-primary"  ng-click="">Home</button>
+	<button class="btn btn-warning" ng-click="">update</button>
+	
+</p>

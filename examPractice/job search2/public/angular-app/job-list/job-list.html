@@ -1,0 +1,4 @@
+<h1>{{vm.title}}</h1><input type="text"><button type="button" class="btn btn-info">Info</button>
+<ul>
+	<li ng-repeat="job in vm.jobs"><a ng-href="#!/jobs/{{job._id}}">{{job.title}}</a></li>
+</ul>

@@ -1,0 +1,18 @@
+<h1>
+    {{vm.title}}
+</h1>
+
+<ul>
+    <li ng-repeat="team in vm.teams">
+        <a ng-href="#!/teams/{{team._id}}">{{team.country}}</a>
+    </li>
+</ul>
+
+<form name="vm.teamForm" ng-submit="vm.addTeam()">
+    to add a new team please fill in the fields:<br>
+    Country: <input type="text" name="country" required ng-model="vm.country" style="color: black;"></br>
+    Win: <input type="text" name="win" required ng-model="vm.win" style="color: black;"></br>
+    Lost: <input type="text" name="win" required ng-model="vm.lost" style="color: black;"></br>
+    points: <input type="text" name="win" required ng-model="vm.points" style="color: black;"></br>
+     <button type="submit" class="btn-success">Add Team</button></br>
+</form>

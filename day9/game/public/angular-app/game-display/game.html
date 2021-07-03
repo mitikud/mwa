@@ -1,0 +1,14 @@
+<h1>
+    Game:<p>{{vm.game.title}}
+        <game-rating starts={{vm.game.rate}}></game-rating>
+    </p>
+</h1>
+
+<p>
+    Price:{{vm.game.price | currency}}<br>
+    Minimum Players:{{vm.game.minPlayers}}<br>
+    MaximumPlayers:{{vm.game.maxPlayers}}<br>
+    MinimumAge:{{vm.game.minAge}}<br>
+    Publisher:{{vm.game.publisher.name}}<br>
+    <button class="btn btn-warning" ng-click="vm.deleteGame()">Delete</button>
+</p>

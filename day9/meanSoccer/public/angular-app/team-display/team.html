@@ -1,0 +1,27 @@
+<h1>
+    Team:<p>{{vm.team.title}}
+       
+    </p>
+</h1>
+
+<p>
+    Country:{{vm.team.country }}<br>
+    Win:{{vm.team.win}}<br>
+    Lost:{{vm.team.lost}}<br>
+    Point:{{vm.team.points}}<br>
+    players: <br>  <div ng-repeat="player in vm.team.players">{{player.name }} <br> {{player.age}} <br> {{player.position}} 
+        <br><button class="btn btn-small" ng-click="vm.deletePlayer(player._id)">Delete</button>
+        
+        
+        <hr> </div>
+    <br>
+    Add players:
+     <form name="vm.teamForm" ng-submit="vm.addPlayer()">
+    to add a new team please fill in the fields:<br>
+    Name: <input type="text" name="name" required ng-model="vm.name" style="color: black;"></br>
+    Age: <input type="text" name="age" required ng-model="vm.age" style="color: black;"></br>
+   Position: <input type="text" name="position" required ng-model="vm.position" style="color: black;"></br>
+     <button type="submit" class="btn-success">Add Player</button></br>
+</form>
+    <button class="btn btn-warning" ng-click="vm.deleteTeam()">Delete</button>
+</p>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Style-Type" content="text/css" /> 
+    <meta name="viewport" content="width=device-width">
+    <title>navigation-directive.html</title>
+    <link href="/library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
+    <link href="/library/skin/morpheus-default/tool.css" type="text/css" rel="stylesheet" media="all" />
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=SQtW-6dzdJbNBniBNYS2i4Qqd-jrSeUZW2fPryObJl1Jsee2nKyjcUWzVElFJ9pKzyo8aeE8CIeDcZrffsg4gxnADOT8MCBBEAWas80LcTzDAP3RPksqRRfSvfClTUIbhogrEg_8OeIb98udIEwzU-5csT3fJToIunpia35s6xcVOrDkmXfGvsPvhp5bx1sW" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9zYWthaS5jcy5taXUuZWR1L2FjY2Vzcy9jb250ZW50L2dyb3VwLzFiODBkMjQ5LTVlNmUtNDhjOC1hZmY4LWM3NDZlN2NhYWFkZi9EYXRhL25hdmlnYXRpb24tZGlyZWN0aXZlLmh0bWw"/><script type="text/javascript" src="/library/js/headscripts.js"></script>
+    <style>body { padding: 5px !important; }</style>
+  </head>
+  <body>
+<nav ng-controller="LoginController as vm" class="navbar navbar-expand-lg navbar-fixed-top bg-dark" ng-init="vm.init()">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/">MeanGames</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li ng-class="vm.isActiveTab('')" class="active"><a href="#/">Home</a></li>
+          <li ng-class="vm.isActiveTab('games')"><a href="#/games">Games</a></li>
+          <li ng-class="vm.isActiveTab('register')"><a href="#/register">Register</a></li>
+        </ul>
+        <div class="col-xs-6">
+          <form ng-if="!vm.isLoggedIn()" class="navbar-form navbar-right" role="login" ng-submit="vm.login()">
+            <div class="form-group" ng-class="{'has-error': vm.err}">
+              <input type="text" class="form-control input-sm" placeholder="Username" ng-model="vm.username" autocapitalize="none">
+            </div>
+            <div class="form-group" ng-class="{'has-error': vm.err}">
+              <input type="password" class="form-control input-sm" placeholder="Password" ng-model="vm.password" autocapitalize="none">
+            </div>
+            <button type="submit" class="btn btn-sm btn-success">Login</button>
+          </form>
+        </div>
+        <ul ng-if="vm.isLoggedIn()" class="new navbar-nav navbar-right">
+          <li><p class="navbar-text">Welcome {{vm.loggedinUser}}</p></li>
+          <li><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></li>
+        </ul>
+      </div>
+    </div>
+</nav>
+  </body>
+</html>
